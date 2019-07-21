@@ -25,14 +25,30 @@ class CircularBufferTest {
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		assertTrue(circularBuffer.offer("a"));
+	    assertTrue(circularBuffer.offer("b"));
+	    assertEquals("a", circularBuffer.poll());
+	    assertEquals("b", circularBuffer.poll());
 	}
 
 	@Test
 	public void testOffer() {
 		assertTrue(circularBuffer.offer("a"));
 	    assertTrue(circularBuffer.offer("b"));
-	    assertTrue(circularBuffer.offer("c"));
+	    assertFalse(circularBuffer.offer("c")); //Full
+	    assertEquals("a", circularBuffer.poll());
+	    assertEquals("b", circularBuffer.poll());
+	    assertEquals(null, circularBuffer.poll());
+	   
 	}
+	
+	@Test
+	public void typeSaftey() {
+		 assertTrue(circularBuffer.offer(1));
+		 assertTrue(circularBuffer.offer(1));
+		 assertEquals(2, ((int)circularBuffer.poll() + (int)circularBuffer.poll())); //Type cast is required
+	}
+	
+	
 	
 }

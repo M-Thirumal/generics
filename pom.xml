@@ -15,15 +15,45 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>11</java.version>
+		<junit.jupiter.version>5.5.1</junit.jupiter.version>
+		<junit.platform.version>1.5.1</junit.platform.version>
 	</properties>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
-		    <artifactId>junit-jupiter-api</artifactId>
-		    <version>5.5.1</version>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <version>${junit.jupiter.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-runner</artifactId>
+		    <version>${junit.platform.version}</version>
 		    <scope>test</scope>
-		</dependency>				
+		</dependency>
+		<dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-runner</artifactId>
+		    <version>${junit.platform.version}</version>
+		    <scope>test</scope>
+		</dependency>	
+		<dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>		
 	</dependencies>
+	 <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

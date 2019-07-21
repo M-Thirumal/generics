@@ -1,3 +1,5 @@
+package com.thirumal;
+
 public class CircularBuffer {
 
     private Object[] buffer;
